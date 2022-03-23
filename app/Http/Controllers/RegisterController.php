@@ -49,10 +49,8 @@ class RegisterController extends Controller
             return $array;
 
         } else {
-
             $array['error'] = $validator->errors()->first();
             return $array;
-
         }
 
         return $array;
@@ -72,7 +70,7 @@ class RegisterController extends Controller
     }
 
     public function verifyCPF($cpf) {
-        $array = ['response' => false];
+        $array = ['response' => false, 'cpf' => $cpf];
         $item = People::select('cpf')->where('cpf', $cpf)->first();
         if($item) {
             $array['response'] = true;
@@ -81,7 +79,7 @@ class RegisterController extends Controller
     }
 
     public function verifyEmail($email) {
-        $array = ['response' => false];
+        $array = ['response' => false, 'email' => $email];
         $item = People::select('email')->where('email', $email)->first();
         if($item) {
             $array['response'] = true;
