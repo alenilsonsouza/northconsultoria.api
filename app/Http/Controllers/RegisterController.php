@@ -43,6 +43,10 @@ class RegisterController extends Controller
             $new->type_register = $request->type_register;
             $new->kinship = $request->kinship;
             $new->date_register = date('Y-m-d');
+            $new->corporate_name = $request->corporate_name;
+            $new->fantasy_name = $request->fantasy_name;
+            $new->cnpj = $request->cnpj;
+            $new->opening_date = $request->opening_date;
             $new->save();
 
             $array['id'] = $new->id;
